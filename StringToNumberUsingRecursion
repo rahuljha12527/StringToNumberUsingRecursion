@@ -1,0 +1,31 @@
+#include <iostream>
+#include<cstring>
+#include<cmath>
+using namespace std;
+
+int stringToNumber(char c[]){
+    
+    int len=strlen(c);
+    if(len==1){
+        int b=c[0]-48;
+        return b;
+    }
+    
+    int ans=stringToNumber(c+1);
+    
+    int x=c[0]-48;
+    
+    x=x*pow(10,len-1)+ans;
+    
+    return x;
+    
+}
+
+
+int main() {
+	// your code goes here
+	char input[50];
+	cin>>input;
+	cout<<stringToNumber(input)<<endl;
+	return 0;
+}
