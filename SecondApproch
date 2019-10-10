@@ -1,0 +1,40 @@
+#include<iostream>
+#include<cstring>
+#include<cmath>
+using namespace std;
+
+
+int helper(char c[],int size){
+    
+    if(size==1){
+        int b=c[0]-48;
+        return b;
+    }
+    
+    int ans=helper(c,size-1);
+    
+    if(c[size-1]!='\0'){
+        
+        int b=c[size-1]-48;
+        
+        int d=ans*10+b;
+        
+        return d;
+    }
+    
+    
+}
+
+int stringToNumber(char input[]){
+    int len=strlen(input);
+    
+    return helper(input,len);
+}
+
+int main(){
+    
+    char c[50];
+    cin>>c;
+    cout<<stringToNumber(c)<<endl;
+    
+}
